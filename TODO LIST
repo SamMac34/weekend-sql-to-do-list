@@ -1,0 +1,13 @@
+
+TODO List
+
+- [] Allow users to create a task
+- [] Each task should have an option to 'complete' and 'delete'
+- [] Change visual appearance when a task is completed
+- [] CSS Styling to make app look good
+- [] Add files to .gitignore
+- [] 
+- []
+- []
+
+Database should include columns for: task, complete(Y/N), completed when?,  
