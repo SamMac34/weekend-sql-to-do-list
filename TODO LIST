@@ -1,9 +1,11 @@
 
 TODO List
 
+- [] 
+- [] Create database called `weekend-to-do-app`.
 - [] Allow users to create a task
 - [] Each task should have an option to 'complete' and 'delete'
-- [] Change visual appearance when a task is completed
+- [] Change visual appearance when a task is completed, 'check off' items when complete
 - [] CSS Styling to make app look good
 - [] Add files to .gitignore
 - [] 
