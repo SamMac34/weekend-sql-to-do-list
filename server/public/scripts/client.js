@@ -1,12 +1,12 @@
 $(document).ready();
 console.log('JS Ready!');
 
-onReady( {
+function onReady() {
     console.log('JQ Ready');
 
 
 
-});
+};
 
 // handleSubmit
 
