@@ -1,0 +1,40 @@
+body {
+    margin:auto;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 600px;
+}
+table, th, tr, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+div {
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    /* border: 1px solid black; */
+
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    border: 1px solid black;
+    min-width: 600px;
+    /* margin-left: 50px;
+    margin-right: 50px; */
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#taskList {
+   
+
+}
