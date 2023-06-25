@@ -9,7 +9,7 @@ function onReady() {
     // Listener for submit button
     $('#submit-btn').on('click', handleSubmit);
     // Listener for delete button
-    // $('#taskList').on('click', '.delete-btn', deleteTask);
+    $('#taskList').on('click', '#delete-btn', deleteTask);
     // Listener for complete button
 
 
@@ -22,8 +22,12 @@ function handleSubmit() {
     task.task = $('#task-input').val();
     task.dueDate = $('#dueDate-input').val();
     task.completed = 'N';
-    console.log($('#task-input').val());
+
     addTask(task);
+
+    $('#task-input').val('');
+    $('#dueDate-input').val('');
+
 }
 
 // Add a task
@@ -58,6 +62,22 @@ function getTasks() {
 // Update a task to completed
 
 // Delete a task
+function deleteTask() {
+    console.log('In deleteTask');
+    const taskId = $(this).parent().parent().data('id');
+
+    $.ajax({
+        method: 'DELETE',
+        url: `/tasks/${taskId}`
+    }).then((response) => {
+        console.log('Task deleted!');
+        getTasks();
+    }).catch((error) => {
+        console.log('Error deleting task', error);
+        alert('Error deleting task!');
+        res.sendStatus(500);
+      });
+}
 
 // Render taskList
 function renderTasks(tasks) {

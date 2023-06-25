@@ -36,6 +36,18 @@ router.post('/', (req, res) => {
 // PUT update task to completed
 
 // DELETE a task
+router.delete('/:id', (req, res) => {
+    let idToDelete = req.params.id;
+    let query = `DELETE FROM "tasks" WHERE id = $1;`;
+    pool.query(query, [idToDelete])
+      .then((results) => {
+        console.log('Task deleted');
+        res.sendStatus(200)
+      }).catch((error) => {
+        console.log('Error deleting task, error is: ', error);
+        res.sendStatus(500)
+      });
+  });
 
 
 module.exports = router;
