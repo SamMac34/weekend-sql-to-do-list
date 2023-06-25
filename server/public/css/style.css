@@ -55,3 +55,7 @@ input {
 #task-input {
     width: 200px;
 }
+
+.completed {
+    background-color:rgb(150, 250, 150);
+}
