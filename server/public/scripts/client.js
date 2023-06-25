@@ -7,17 +7,39 @@ function onReady() {
     getTasks();
     
     // Listener for submit button
-
+    $('#submit-btn').on('click', handleSubmit);
     // Listener for delete button
-
+    // $('#taskList').on('click', '.delete-btn', deleteTask);
     // Listener for complete button
 
 
-};
+}
 
 // handleSubmit
+function handleSubmit() {
+    console.log('Submit button clicked');
+    let task = {};
+    task.task = $('#task-input').val();
+    task.dueDate = $('#dueDate-input').val();
+    task.completed = 'N';
+    console.log($('#task-input').val());
+    addTask(task);
+}
 
 // Add a task
+function addTask(taskToAdd) {
+    $.ajax({
+        type: 'POST',
+        url: 'tasks',
+        data: taskToAdd
+    }).then((response) => {
+        console.log('Task added')
+        getTasks();
+    }).catch((error) => {
+        console.log('Error posting new task', error);
+        alert('Unable to add new task. Please try again later.')
+    })
+}
 
 // Refresh tasks
 function getTasks() {
@@ -48,6 +70,7 @@ function renderTasks(tasks) {
                 <td>${tasks[i].task}</td>
                 <td>${tasks[i].dueDate}</td>
                 <td>${tasks[i].completed}</td>
+                <td><button id="delete-btn">DELETE</button></td>
             </tr>
 
         `)
@@ -63,5 +86,5 @@ function renderTasks(tasks) {
     //   newRow.data('id', tasks[i].id);
   
     //   $('#taskList').append(newRow);
-    };
-  };
+    }
+  }

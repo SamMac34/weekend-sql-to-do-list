@@ -12,11 +12,21 @@
     <header>
         <h1>Weekend Sql To-Do List</h1>
     </header>
+    <main>
+    <section id="inputs">
+      <label>Task to Add:</label>
+      <input type="text" id="task-input"><br>
+      <label>Complete by (date)</label>
+      <input type="date" id="dueDate-input">
+      <button id="submit-btn">SUBMIT</button>
+    </section>
 
     <div id="taskTable">
-        <h2>Task List</h2>
         <table>
           <thead>
+            <tr>
+              <th class="listTitle">Task List</th>
+            </tr>
             <tr>
              <th>Task</th>
              <th>Due By</th>
@@ -39,5 +49,6 @@
           </tbody>
         </table>
       </div>
+    </main>
 </body>
 </html>
