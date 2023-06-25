@@ -34,6 +34,18 @@ router.post('/', (req, res) => {
 });
 
 // PUT update task to completed
+router.put('/:id', (req, res) => {
+    let idToUpdate = req.params.id;
+    let query = `UPDATE "tasks" SET "completed" = 'YES' WHERE "id" = $1;`;
+    pool.query(query, [idToUpdate])
+    .then((results) => {
+        console.log('Task completed in DB');
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log('Error changing task to complete', error);
+        res.sendStatus(500);
+    });
+})
 
 // DELETE a task
 router.delete('/:id', (req, res) => {

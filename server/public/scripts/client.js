@@ -9,9 +9,9 @@ function onReady() {
     // Listener for submit button
     $('#submit-btn').on('click', handleSubmit);
     // Listener for delete button
-    $('#taskList').on('click', '#delete-btn', deleteTask);
+    $('#taskList').on('click', '.delete-btn', deleteTask);
     // Listener for complete button
-
+    $('#taskList').on('click', '.complete-btn', completeTask);
 
 }
 
@@ -51,15 +51,31 @@ function getTasks() {
     $.ajax({
         type: 'GET',
         url: '/tasks'
-      }).then((response) => {
+    }).then((response) => {
         console.log( 'In getTasks, response is: ', response);
         renderTasks(response);
-      }).catch((error) => {
+    }).catch((error) => {
         console.log('Error getting tasks', error);
-      });
+    });
 }
 
-// Update a task to completed
+// Update task to completed
+function completeTask() {
+    console.log('In completeTask');
+    const taskId = $(this).parent().parent().data('id');
+
+    $.ajax({
+        method: 'PUT',
+        url: `tasks/${taskId}`
+    }).then((response) => {
+        console.log('Task Completed!')
+        getTasks();
+    }).catch((error) => {
+        console.log('Error completing task', error);
+        alert('Error completing task, please try again.');
+        res.sendStatus(500);
+    });
+}
 
 // Delete a task
 function deleteTask() {
@@ -76,7 +92,7 @@ function deleteTask() {
         console.log('Error deleting task', error);
         alert('Error deleting task!');
         res.sendStatus(500);
-      });
+    });
 }
 
 // Render taskList
@@ -89,22 +105,9 @@ function renderTasks(tasks) {
             <tr data-id=${tasks[i].id}>
                 <td>${tasks[i].task}</td>
                 <td>${tasks[i].dueDate}</td>
-                <td>${tasks[i].completed}</td>
-                <td><button id="delete-btn">DELETE</button></td>
+                <td><button class="complete-btn">DONE</button></td>
+                <td><button class="delete-btn">DELETE</button></td>
             </tr>
-
         `)
-    //   let newRow = $(`
-    //   <tr>
-    //     <td>${tasks[i].task}</td>
-    //     <td>${tasks[i].dueDate}</td>
-    //     <td><button>${tasks[i].completed}</button></td>
-    //     <td><button class="delete-btn">DELETE</button></td>
-    //   </tr>
-    // `);
-  
-    //   newRow.data('id', tasks[i].id);
-  
-    //   $('#taskList').append(newRow);
     }
-  }
+}
