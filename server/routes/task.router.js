@@ -7,12 +7,16 @@ const pool = require('../modules/pool');
 
 
 // GET all tasks
-// router.get('/', (req, res) => {
-//     let queryText = 'SELECT * FROM "tasks" ORDER BY "id";';
-//     pool.query(queryText).then(result => {
-//         res.send(result.rows);
-//     })
-// })
+router.get('/', (req, res) => {
+    let queryText = 'SELECT * FROM "tasks";';
+    pool.query(queryText)
+    .then(result => {
+        res.send(result.rows);
+    }).catch(error => {
+        console.log('Error getting tasks', error);
+        res.sendStatus(500);
+    });
+});
 
 // POST new task
 
