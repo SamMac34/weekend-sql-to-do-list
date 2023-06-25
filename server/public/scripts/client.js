@@ -117,6 +117,6 @@ function renderTasks(tasks) {
                     <td><button class="delete-btn">DELETE</button></td>
                 </tr>
             `)
-            }
+        }
     }
 }

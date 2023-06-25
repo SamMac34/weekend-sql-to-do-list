@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-
-// Remove this if uneeded:
 const pg =require('pg');
 const pool = require('../modules/pool');
 
