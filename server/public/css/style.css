@@ -1,61 +1,91 @@
 body {
-    margin:auto;
+    margin: 50px;
+    background-image: url("https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80");
+    font-size: larger;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
-table {
+/* ELEMENTS */
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 4em;
+    
+}
+h2 {
+    border: 1px solid black;
+    min-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    min-width: 600px;
 }
-table, th, tr, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-
 div {
     text-align: center;
     margin-left: 50px;
     margin-right: 50px;
-    /* border: 1px solid black; */
-
 }
 
-h1 {
-    text-align: center;
-}
-
-h2 {
-    border: 1px solid black;
-    min-width: 600px;
-    /* margin-left: 50px;
-    margin-right: 50px; */
+/* TABLE ELEMENTS */
+table {
+    border: 2px solid black;
+    border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
-
+    min-width: 800px;
 }
-
+th, tr, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+th {
+    background-color: rgb(200, 200, 200);
+}
 #taskList {
-    background-color:lightgray;
+    background-color: white;
+}
+.completed {
+    background-color: rgb(150, 250, 150);
+}
+.delete-btn {
+    background-color: rgb(244, 133, 113);
+    border-radius: 5px;
+}
+.complete-btn {
+    background-color: rgb(150, 250, 150);
+    border-radius: 5px;
+
 }
 
+ /* INPUTS */
 #inputs {
+    /* background-color: white; */
+    /* border-radius: 10px; */
+    color: rgb(247, 250, 246);
     display: block;
+    font-size: 22px;
     margin: 30px auto;
-    width: 400px;
+    width: 600px;
 }
-
 input {
+    font-size: 18px;
+    line-height: 20px;
     margin: 5px;
 }
-
-#submit-btn {
-    margin: 30px 0px 0px 115px;
+label {
+    margin-left: 70px;
+    font-size: 26px;
 }
-
 #task-input {
-    width: 200px;
-}
+    width: 280px;
 
-.completed {
-    background-color:rgb(150, 250, 150);
 }
+#submit-btn {
+    border-radius: 8px;
+    font-size: 18px;
+    font-family: serif;
+    margin: 30px 0px 20px 250px;
+}
+#submit-btn:hover {
+    background-color: rgb(250, 240, 120);
+    transition: 0.4s;
+}  

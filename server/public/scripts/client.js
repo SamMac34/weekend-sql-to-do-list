@@ -113,7 +113,7 @@ function renderTasks(tasks) {
                 <tr data-id=${tasks[i].id} class="completed">
                     <td>${tasks[i].task}</td>
                     <td>${tasks[i].dueDate}</td>
-                    <td>DONE!</td>
+                    <td>✅ DONE!</td>
                     <td><button class="delete-btn">DELETE</button></td>
                 </tr>
             `)
