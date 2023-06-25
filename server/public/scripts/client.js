@@ -21,7 +21,7 @@ function handleSubmit() {
     let task = {};
     task.task = $('#task-input').val();
     task.dueDate = $('#dueDate-input').val();
-    task.completed = 'N';
+    task.completed = 'NO';
 
     addTask(task);
 
@@ -47,7 +47,6 @@ function addTask(taskToAdd) {
 
 // Refresh tasks
 function getTasks() {
-    console.log('in getTasks');
     $.ajax({
         type: 'GET',
         url: '/tasks'
@@ -68,7 +67,7 @@ function completeTask() {
         method: 'PUT',
         url: `tasks/${taskId}`
     }).then((response) => {
-        console.log('Task Completed!')
+        console.log('Task Completed!');
         getTasks();
     }).catch((error) => {
         console.log('Error completing task', error);
@@ -97,17 +96,27 @@ function deleteTask() {
 
 // Render taskList
 function renderTasks(tasks) {
-    console.log('in renderTasks');
+    console.log('in renderTasks tasks is:', tasks.length);
     $('#taskList').empty();
-  
-    for(let i = 0; i < tasks.length; i+= 1) {
-        $('#taskList').append(`
-            <tr data-id=${tasks[i].id}>
-                <td>${tasks[i].task}</td>
-                <td>${tasks[i].dueDate}</td>
-                <td><button class="complete-btn">DONE</button></td>
-                <td><button class="delete-btn">DELETE</button></td>
-            </tr>
-        `)
+    for(let i = 0; i < tasks.length; i++) {
+        if(`${tasks[i].completed}` == 'NO'){
+            $('#taskList').append(`
+                <tr data-id=${tasks[i].id}>
+                    <td>${tasks[i].task}</td>
+                    <td>${tasks[i].dueDate}</td>
+                    <td><button class="complete-btn">COMPLETE</button></td>
+                    <td><button class="delete-btn">DELETE</button></td>
+                </tr>
+            `)
+        } else {
+            $('#taskList').append(`
+                <tr data-id=${tasks[i].id} class="completed">
+                    <td>${tasks[i].task}</td>
+                    <td>${tasks[i].dueDate}</td>
+                    <td>✅ DONE!</td>
+                    <td><button class="delete-btn">DELETE</button></td>
+                </tr>
+            `)
+            }
     }
 }
