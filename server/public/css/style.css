@@ -11,6 +11,10 @@ h1 {
     text-align: center;
     color: white;
     font-size: 4em;
+    /* -webkit-text-fill-color: white;
+    -webkit-text-stroke: black 2px; */
+    text-shadow: 3px 3px black;
+
 }
 h2 {
     border: 1px solid black;
@@ -24,6 +28,7 @@ div {
     margin-right: 50px;
 }
 
+
 /* TABLE ELEMENTS */
 table {
     border: 2px solid black;
@@ -31,6 +36,7 @@ table {
     margin-left: auto;
     margin-right: auto;
     min-width: 800px;
+    box-shadow: 10px 10px 5px rgb(120, 116, 116);
 }
 th, tr, td {
     border: 1px solid black;
@@ -39,6 +45,8 @@ th, tr, td {
 }
 th {
     background-color: rgb(200, 200, 200);
+    border: 2px solid black;
+    font-size: 22px;
 }
 #taskList {
     background-color: white;
@@ -72,6 +80,7 @@ input {
 label {
     margin-left: 70px;
     font-size: 26px;
+    text-shadow: 1px 1px black;
 }
 #task-input {
     width: 280px;
@@ -83,6 +92,6 @@ label {
     margin: 30px 0px 20px 250px;
 }
 #submit-btn:hover {
-    background-color: rgb(250, 240, 120);
+    background-color: rgb(150, 250, 150);
     transition: 0.4s;
 }  
