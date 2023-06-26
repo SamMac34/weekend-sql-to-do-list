@@ -45,7 +45,7 @@ function addTask(taskToAdd) {
     })
 }
 
-// Refresh tasks
+// GET tasks
 function getTasks() {
     $.ajax({
         type: 'GET',
@@ -96,7 +96,7 @@ function deleteTask() {
 
 // Render taskList
 function renderTasks(tasks) {
-    console.log('in renderTasks tasks is:', tasks.length);
+    // console.log('in renderTasks tasks is:', tasks.length, tasks.dueDate);
     $('#taskList').empty();
     for(let i = 0; i < tasks.length; i++) {
         if(`${tasks[i].completed}` == 'NO'){

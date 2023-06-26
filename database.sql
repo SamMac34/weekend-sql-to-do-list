@@ -1,6 +1,6 @@
 CREATE TABLE "tasks" (
 "id" serial primary key,
-"task" varchar(100) not null,
+"task" varchar(255) not null,
 "dueDate" varchar(10),
 "completed" varchar(10)
 );

@@ -35,7 +35,7 @@ table {
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
-    min-width: 800px;
+    min-width: 600px;
     box-shadow: 10px 10px 5px rgb(120, 116, 116);
 }
 th, tr, td {
